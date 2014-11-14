@@ -17,11 +17,11 @@ Game steps:
 	
 	In my version:
 	
-	--the update method resets the player position on collision 
+	(a)the update method resets the player position on collision 
 	with the enemy, or when the player hits the water blocks.
-	--the render method (pre-written) renders or draws the player image on the 
+	(b)the render method (pre-written) renders or draws the player image on the 
 	canvas at the x and y positions set in the Player constructor .
-	--the handleInput method animates the player and gives it a direction
+	(c)the handleInput method animates the player and gives it a direction
 	to move in depending which key is pressed, and incrementing or decrementing
 	the x or y positions by the speed value. A pre-written addEventListener 
 	function calls handleInput on key presses. 
@@ -32,7 +32,7 @@ Game steps:
 	point selected randomly from an array of appropriate positions along y),  
 	a random speed property, and the enemy image.The Enemy methods include 
 	update and render.
-	--the update method updates enemy position if the enemy leaves canvas 
+	(a)the update method updates enemy position if the enemy leaves canvas 
 	boundaries, and activates enemies by incrementing their x positions by 
 	a randomly set speed multiplied by dt (which is calculated inside engine.js)
 	
