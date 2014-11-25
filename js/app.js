@@ -1,7 +1,7 @@
 /** 
  * Player class
  * This class requires an update(), render() and
- * a handleInput() method.
+ *   a handleInput() method.
  * @constructor
  */
 var Player = function () {
@@ -72,11 +72,10 @@ var positionArray = [65, 145, 227];
  * Enemy class 
  * @constructor
  */
-
 var Enemy = function() {
     /**
      * The image/sprite for enemies uses
-     * a helper provided for easily loading images
+     *   a helper provided for easily loading images
      */
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
@@ -88,7 +87,6 @@ var Enemy = function() {
  * Update the enemy's position, required method for game
  * @param (number) dt This is a time delta between ticks
  */
-
 Enemy.prototype.update = function(dt) {
 	/** Updates enemy position when enemy leaves canvas boundaries */
 	if (this.x > 505) {
@@ -107,9 +105,8 @@ Enemy.prototype.render = function() {
 
 /** 
  * Create enemies by pushing new enemy objects into the
- * allEnemies array until there are 4 enemy instances 
+ *   allEnemies array until there are 4 enemy instances 
  */
-
 var allEnemies = [];
 
 var createEnemies = function() {
