@@ -2,6 +2,7 @@
  * Player class
  * This class requires an update(), render() and
  * a handleInput() method.
+ * @constructor
  * /
 var Player = function () {
 	this.sprite = 'images/char-boy.png';
@@ -11,7 +12,7 @@ var Player = function () {
 };
 
 Player.prototype.update = function(dt) {
-	//checks for player-enemy collisions and updates player position on collision
+	/** checks for player-enemy collisions and updates player position on collision */
 	for(var i = 0, numOfEnemies = allEnemies.length; i < numOfEnemies; i++) {
 		if(player.x <= (allEnemies[i].x + 55) && 
 		allEnemies[i].x <= (player.x + 55) && 
@@ -20,7 +21,7 @@ Player.prototype.update = function(dt) {
 			player.x = 205;
 			player.y = 380;
 		}
-		//--checks if player is touching water blocks, and resets player's position if true	
+		//checks if player is touching water blocks, and resets player's position if true	
 		if(player.y < 60) {
 			player.x = 205;
 			player.y = 380;
@@ -32,9 +33,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-/**
- * handles player movement direction and speed
- * /
+/** handles player movement direction and speed */
 Player.prototype.handleInput = function(_key) {
 	switch(_key) {
 		 case 'left':
@@ -51,9 +50,7 @@ Player.prototype.handleInput = function(_key) {
 			break;
 	}
 		
-	/**
-	 * conditions to ensure that player cannot leave canvas (game environment) boundaries
-	 * /
+	/** conditions to ensure that player cannot leave canvas (game environment) boundaries */
 	if(player.x < 0) {
 		player.x = 0;
 	}
@@ -68,22 +65,19 @@ Player.prototype.handleInput = function(_key) {
 	}
 };
 
-/**
- * array of predetermined enemy positions on y
- * /
+/** array of predetermined enemy positions on y */
 var positionArray = [65, 145, 227]; 
 
-/**
- * Enemies our player must avoid
- * /
+/** 
+ * Enemy class 
+ * @constructor
+ */
 
 var Enemy = function() {
     /**
-     * Variables applied to each of our instances go here,
-     * we've provided one for you to get started
-     * The image/sprite for our enemies, this uses
-     * a helper we've provided to easily load images
-     * /
+     * The image/sprite for enemies uses
+     * a helper provided for easily loading images
+     */
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
     this.y = positionArray[Math.floor(Math.random() * 3)];
@@ -92,38 +86,32 @@ var Enemy = function() {
 
 /**
  * Update the enemy's position, required method for game
- * Parameter: dt, a time delta between ticks
- * /
+ * @param (number) dt This is a time delta between ticks
+ */
 
 Enemy.prototype.update = function(dt) {
-	/**
-	 * updates enemy position when enemy leaves canvas boundaries
-	 * /
+	/** updates enemy position when enemy leaves canvas boundaries */
 	if (this.x > 505) {
 		this.x = -80;
 		this.y = positionArray[Math.floor(Math.random() * 3)];
-	//--activates enemy instances by incrementing their x positions by a randomly determined speed--
+	/** activates enemy instances by incrementing their x positions by a randomly determined speed */
 	} else {
 		this.x += (Math.random() * this.speed + 1) * dt;
 	}
 };
 
-/**
- * Draw the enemy on the screen, required method for game
- * /
+/** Draw the enemy on the screen, required method for game */
 Enemy.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-var allEnemies = [];
-var player = new Player();
+/** 
+ * Create enemies by pushing new enemy objects into the
+ * allEnemies array until there are 4 enemy instances 
+ */
 
-/**
- * creates enemies by pushing new enemy objects into the allEnemies array until there are 4 enemy instances
- * /
+var allEnemies = [];
+
 var createEnemies = function() {
 	for (var i = 0; i < 4; i++) {
 		var enemy = new Enemy();
@@ -132,10 +120,12 @@ var createEnemies = function() {
 };
 createEnemies();
 
+/** Instantiate player */
+var player = new Player();
+
 /**
- * This listens for key presses. 
- * Also sends the keys to your Player.handleInput() method. 
- * You don't need to modify this.
+ * Add an event listener that listens for key presses. 
+ * Also send the keys to the Player.handleInput() method. 
  * /
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
