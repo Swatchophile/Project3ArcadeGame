@@ -12,7 +12,7 @@ var Engine = (function(global) {
 
     function main() {
         var now = Date.now(),
-		//--modifying dt to divide (now - lastTime) by 23 instead of 1000 to control bug speed--
+		//modifying dt to divide (now - lastTime) by 23 instead of 1000 to control bug speed
             dt = (now - lastTime) / 23.0;
 
         update(dt);
