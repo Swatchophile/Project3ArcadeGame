@@ -1,6 +1,8 @@
-// Player class
-// This class requires an update(), render() and
-// a handleInput() method.
+/** 
+ * Player class
+ * This class requires an update(), render() and
+ * a handleInput() method.
+ * /
 var Player = function () {
 	this.sprite = 'images/char-boy.png';
 	this.x = 205;
@@ -9,7 +11,7 @@ var Player = function () {
 };
 
 Player.prototype.update = function(dt) {
-	//--checks for player-enemy collisions and updates player position on collision--
+	//checks for player-enemy collisions and updates player position on collision
 	for(var i = 0, numOfEnemies = allEnemies.length; i < numOfEnemies; i++) {
 		if(player.x <= (allEnemies[i].x + 55) && 
 		allEnemies[i].x <= (player.x + 55) && 
@@ -30,7 +32,9 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-//--handles player movement direction and speed--
+/**
+ * handles player movement direction and speed
+ * /
 Player.prototype.handleInput = function(_key) {
 	switch(_key) {
 		 case 'left':
@@ -47,7 +51,9 @@ Player.prototype.handleInput = function(_key) {
 			break;
 	}
 		
-	//--conditions to ensure that player cannot leave canvas (game environment) boundaries--
+	/**
+	 * conditions to ensure that player cannot leave canvas (game environment) boundaries
+	 * /
 	if(player.x < 0) {
 		player.x = 0;
 	}
@@ -62,28 +68,37 @@ Player.prototype.handleInput = function(_key) {
 	}
 };
 
-//--array of predetermined enemy positions on y--
+/**
+ * array of predetermined enemy positions on y
+ * /
 var positionArray = [65, 145, 227]; 
 
-// Enemies our player must avoid
+/**
+ * Enemies our player must avoid
+ * /
 
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    /**
+     * Variables applied to each of our instances go here,
+     * we've provided one for you to get started
+     * The image/sprite for our enemies, this uses
+     * a helper we've provided to easily load images
+     * /
     this.sprite = 'images/enemy-bug.png';
-	this.x = 0;
-	this.y = positionArray[Math.floor(Math.random() * 3)];
-	this.speed = Math.random() * 10;
+    this.x = 0;
+    this.y = positionArray[Math.floor(Math.random() * 3)];
+    this.speed = Math.random() * 10;
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+/**
+ * Update the enemy's position, required method for game
+ * Parameter: dt, a time delta between ticks
+ * /
 
 Enemy.prototype.update = function(dt) {
-	//--updates enemy position when enemy leaves canvas boundaries--
+	/**
+	 * updates enemy position when enemy leaves canvas boundaries
+	 * /
 	if (this.x > 505) {
 		this.x = -80;
 		this.y = positionArray[Math.floor(Math.random() * 3)];
@@ -93,7 +108,9 @@ Enemy.prototype.update = function(dt) {
 	}
 };
 
-// Draw the enemy on the screen, required method for game
+/**
+ * Draw the enemy on the screen, required method for game
+ * /
 Enemy.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -104,7 +121,9 @@ Enemy.prototype.render = function() {
 var allEnemies = [];
 var player = new Player();
 
-//--creates enemies by pushing new enemy objects into the allEnemies array until there are 4 enemy instances--
+/**
+ * creates enemies by pushing new enemy objects into the allEnemies array until there are 4 enemy instances
+ * /
 var createEnemies = function() {
 	for (var i = 0; i < 4; i++) {
 		var enemy = new Enemy();
@@ -113,8 +132,11 @@ var createEnemies = function() {
 };
 createEnemies();
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+/**
+ * This listens for key presses. 
+ * Also sends the keys to your Player.handleInput() method. 
+ * You don't need to modify this.
+ * /
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
