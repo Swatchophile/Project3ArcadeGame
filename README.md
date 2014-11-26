@@ -7,10 +7,10 @@ How to Use the Application / Game Steps:
 
 (3) The bugs in the game are the "enemies" or bad guys that the player needs to avoid. 
 
-(4) The Canvas or Game environment consists of grass blocks at the bottom where the Player stands, the game-play main blocks in the middle that the bugs traverse, and water at the top.
+(4) The Canvas or Game environment consists of grass blocks at the bottom where the Player originally stands (his start position), the stone blocks in the middle that the bugs traverse, and water blocks at the top.
 
 (5) Player movement - pressing the up, down, right and left keys on your keyboard will move the player in those directions. 
-The player speed is 78 pixels - meaning one step in any direction  changes his position by 78 pixels.
+The player speed is 78 pixels, meaning one step in any direction changes his position by 78 pixels.
 
 (6) Enemy movement - the enemies move continuously across the screen from left to right, at random speeds
 
@@ -29,12 +29,12 @@ updates it, is inside engine.js (pre-writted) and uses requestAnimationFrame
 to queue up the next loop (http://jlongster.com/Making-Sprite-based-Games-with-Canvas)
 	
 (2) The Player and Enemy objects are created in app.js using the combination 
-	constructor and prototype pattern. The properties are set using the 
-	constructor pattern. The object methods (containing functionality common to  
-	all instances of an object) are created using the prototype pattern.
+constructor and prototype pattern. The properties are set using the 
+constructor pattern. The object methods (containing functionality common to  
+all instances of an object) are created using the prototype pattern.
 	
 (3) The Player object contains the player's x and y positions, its speed
-	and its image. Its methods include update, render and handleInput.
+and its image. Its methods include update, render and handleInput.
 	
 	In my version:
 	
@@ -52,16 +52,16 @@ to queue up the next loop (http://jlongster.com/Making-Sprite-based-Games-with-C
 	boundaries.
 	
 (4) The Enemy object contains the enemy's original x and y positions (where y is a 
-	point selected randomly from an array of appropriate positions along y),  
-	a random speed property, and the enemy image.The Enemy methods include 
-	update and render.
+point selected randomly from an array of appropriate positions along y),  
+a random speed property, and the enemy image.The Enemy methods include 
+update and render.
 	
 	(a)the update method updates enemy position if the enemy leaves canvas 
 	boundaries, and activates enemies by incrementing their x positions by 
 	a randomly set speed multiplied by dt (which is calculated inside engine.js)
 	
 (5) I modified dt in engine.js to divide (now - lastTime) by 23 instead of 1000 to 
-	control bug speed
+control bug speed
 
 
 
