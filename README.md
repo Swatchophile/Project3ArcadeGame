@@ -1,5 +1,3 @@
-Project3ArcadeGame
-==================
 How to Use the Application / Game Steps:
 ==================
 
