@@ -1,6 +1,7 @@
 Project3ArcadeGame
 ==================
 How to Use the Application / Game Steps:
+==================
 
 (1) Open index.html in a browser (must support HTML5 and have JavaScript enabled)
 
@@ -22,6 +23,8 @@ The player speed is 78 pixels - meaning one step in any direction  changes his p
 (9) When the player loses, the his position is reset to original - meaning he goes back to the center of the grass blocks.
 
 Technical Details:
+==================
+
 (1)The setting up of the game canvas and the loading of the game environment is done 
 for us in engine.js and resources.js. The main game loop that continually 
 updates it, is inside engine.js (pre-writted) and uses requestAnimationFrame
