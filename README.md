@@ -18,9 +18,9 @@ The player speed is 78 pixels, meaning one step in any direction changes his pos
 
 (8) Losing the Game - The player will lose and the game will be reset if the player (a) either hits any of the bugs, or (b) hits the water blocks at the top
 
-(9) When the player loses, the his position is reset to original - meaning he goes back to the center of the grass blocks.
+(9) When the player loses, his position is reset to original - meaning he goes back to the center of the grass blocks.
 
-(10) The player cannot leave the boundaries of the canvas / game environment and the arrow keys will stop working if he tries to go beyond it! 
+(10) The player cannot leave the boundaries of the canvas / game environment and the arrow keys will stop working if he tries to step beyond it! 
 
 Technical Details:
 ==================
