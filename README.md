@@ -1,11 +1,23 @@
 Project3ArcadeGame
 ==================
-Game steps:
+How to Use the Application / Game Steps:
 
-(1) The setting up of the game canvas and the loading of the game environment is done 
-	for us in engine.js and resources.js. The main game loop that continually 
-	updates it, is inside engine.js (pre-writted) and uses requestAnimationFrame
-	to queue up the next loop (http://jlongster.com/Making-Sprite-based-Games-with-Canvas)
+(1) Open index.html in a browser (must support HTML5 and have JavaScript enabled)
+(2) There is one main Player or Hero in the game.
+(3) The bugs in the game are the "enemies" or bad guys that the player needs to avoid. 
+(4) The Canvas or Game environment consists of grass blocks at the bottom where the Player stands, the game-play main blocks in the middle that the bugs traverse, and water at the top.
+(5) Player movement - pressing the up, down, right and left keys on your keyboard will move the player in those directions. 
+The player speed is 78 pixels - meaning one step in any direction  changes his position by 78 pixels.
+(6) Enemy movement - the enemies move continuously across the screen from left to right, at random speeds
+(7) Goal - The goal of the game is for the player to navigate the canvas without hitting the bugs or the water
+(8) Losing the Game - The player will lose and the game will be reset if the player (a) either hits any of the bugs, or (b) hits the water blocks at the top
+(9) When the player loses, the his position is reset to original - meaning he goes back to the center of the grass blocks.
+
+Technical Details:
+(1)The setting up of the game canvas and the loading of the game environment is done 
+for us in engine.js and resources.js. The main game loop that continually 
+updates it, is inside engine.js (pre-writted) and uses requestAnimationFrame
+to queue up the next loop (http://jlongster.com/Making-Sprite-based-Games-with-Canvas)
 	
 (2) The Player and Enemy objects are created in app.js using the combination 
 	constructor and prototype pattern. The properties are set using the 
