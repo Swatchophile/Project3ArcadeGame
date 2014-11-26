@@ -1,8 +1,8 @@
 /** 
- *Player class
- *This class requires an update(), render() and
- *a handleInput() method.
- *@constructor
+ * Player class
+ * This class requires an update(), render() and
+ * a handleInput() method.
+ * @constructor
  */
 var Player = function () {
 	this.sprite = 'images/char-boy.png';
@@ -13,7 +13,7 @@ var Player = function () {
 
 Player.prototype.update = function(dt) {
 	for(var i = 0, numOfEnemies = allEnemies.length; i < numOfEnemies; i++) {
-		/**Checks for player-enemy collisions and updates player position on collision*/
+		/** Checks for player-enemy collisions and updates player position on collision */
 		if(player.x <= (allEnemies[i].x + 55) && 
 		allEnemies[i].x <= (player.x + 55) && 
 		player.y <= (allEnemies[i].y + 50) && 
@@ -21,7 +21,7 @@ Player.prototype.update = function(dt) {
 			player.x = 205;
 			player.y = 380;
 		}
-		/**Checks if player is touching water blocks, and resets player's position if true*/	
+		/** Checks if player is touching water blocks, and resets player's position if true */	
 		if(player.y < 60) {
 			player.x = 205;
 			player.y = 380;
@@ -33,7 +33,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-/**Handles player movement direction and speed*/
+/** Handles player movement direction and speed */
 Player.prototype.handleInput = function(_key) {
 	switch(_key) {
 		 case 'left':
@@ -50,7 +50,7 @@ Player.prototype.handleInput = function(_key) {
 			break;
 	}
 		
-	/**Conditions to ensure that player cannot leave canvas (game environment) boundaries*/
+	/** Conditions to ensure that player cannot leave canvas (game environment) boundaries */
 	if(player.x < 0) {
 		player.x = 0;
 	}
@@ -65,17 +65,17 @@ Player.prototype.handleInput = function(_key) {
 	}
 };
 
-/**Array of predetermined enemy positions on y*/
+/** Array of predetermined enemy positions on y */
 var positionArray = [65, 145, 227]; 
 
 /** 
- *Enemy class 
- *@constructor
+ * Enemy class 
+ * @constructor
  */
 var Enemy = function() {
     /**
-     *The image/sprite for enemies uses
-     *a helper provided for easily loading images
+     * The image/sprite for enemies uses
+     * a helper provided for easily loading images
      */
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
@@ -84,8 +84,8 @@ var Enemy = function() {
 };
 
 /**
- *Update the enemy's position, required method for game
- *@param (number) dt This is a time delta between ticks
+ * Update the enemy's position, required method for game
+ * @param (number) dt This is a time delta between ticks
  */
 Enemy.prototype.update = function(dt) {
 	/** Updates enemy position when enemy leaves canvas boundaries */
@@ -98,14 +98,14 @@ Enemy.prototype.update = function(dt) {
 	}
 };
 
-/**Draw the enemy on the screen, required method for game*/
+/** Draws the enemy on the screen, required method for game */
 Enemy.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 /** 
- *Create enemies by pushing new enemy objects into the
- *allEnemies array until there are 4 enemy instances 
+ * Creates enemies by pushing new enemy objects into the
+ * allEnemies array until there are 4 enemy instances 
  */
 var allEnemies = [];
 
@@ -117,12 +117,12 @@ var createEnemies = function() {
 };
 createEnemies();
 
-/**Instantiate player*/
+/** Instantiates player */
 var player = new Player();
 
 /**
- *Add an event listener that listens for key presses. 
- *Also send the keys to the Player.handleInput() method. 
+ * Adds an event listener that listens for key presses. 
+ * Also sends the keys to the Player.handleInput() method. 
  */
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
