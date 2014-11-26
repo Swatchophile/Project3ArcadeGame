@@ -1,26 +1,28 @@
 How to Use the Application / Game Steps:
 ==================
 
-(1) Open p3game.html in a browser (must support HTML5 and have JavaScript enabled)
+(1) Download all the files and folders in the Project3ArcadeGame repository to a new folder on your computer, keeping the folder structure as you see it in the repo. 
 
-(2) There is one main Player or Hero in the game. He stands in the center of the grass blocks when the game begins.
+(2) Open p3game.html in a browser (must support HTML5 and have JavaScript enabled)
 
-(3) The bugs in the game are the enemies or bad guys that the player needs to avoid. 
+(3) There is one main Player or Hero in the game. He stands in the center of the grass blocks when the game begins.
 
-(4) The Canvas or Game environment consists of grass blocks at the bottom where the Player originally stands (his start position), the stone blocks in the middle that the bugs traverse, and water blocks at the top.
+(4) The bugs in the game are the enemies or bad guys that the player needs to avoid. 
 
-(5) Player movement - pressing the up, down, right and left arrow keys on your keyboard will move the player in those directions. 
+(5) The Canvas or Game environment consists of grass blocks at the bottom where the Player originally stands (his start position), the stone blocks in the middle that the bugs traverse, and water blocks at the top.
+
+(6) Player movement - pressing the up, down, right and left arrow keys on your keyboard will move the player in those directions. 
 The player speed is 78 pixels, meaning one step in any direction changes his position by 78 pixels.
 
-(6) Enemy movement - the enemies move continuously across the screen from left to right, at random speeds
+(7) Enemy movement - the enemies move continuously across the screen from left to right, at random speeds
 
-(7) Goal - The goal of the game is for the player to navigate the canvas / game environment without hitting the bugs or the water
+(8) Goal - The goal of the game is for the player to navigate the canvas / game environment without hitting the bugs or the water
 
-(8) Losing the Game - The player will lose and the game will be reset if the player (a) either hits any of the bugs, or (b) hits the water blocks at the top
+(9) Losing the Game - The player will lose and the game will be reset if the player (a) either hits any of the bugs, or (b) hits the water blocks at the top
 
-(9) When the player loses, his position is reset to original - meaning he goes back to the center of the grass blocks.
+(10) When the player loses, his position is reset to original - meaning he goes back to the center of the grass blocks.
 
-(10) The player cannot leave the boundaries of the canvas / game environment and the arrow keys will stop working if he tries to step beyond it! 
+(11) The player cannot leave the boundaries of the canvas / game environment and the arrow keys will stop working if he tries to step beyond it! 
 
 Technical Details:
 ==================
